@@ -17,6 +17,20 @@ var posthtml = require("gulp-posthtml");
 var htmlmin = require("gulp-htmlmin");
 var uglify = require("gulp-uglify");
 var pipeline = require("readable-stream").pipeline;
+var ttf2woff = require('gulp-ttf2woff');
+var ttf2woff2 = require('gulp-ttf2woff2');
+
+gulp.task("ttf2woff2", function(){
+  return gulp.src(["source/fonts/*.ttf"])
+    .pipe(ttf2woff2())
+    .pipe(gulp.dest("source/fonts/"));
+});
+
+gulp.task("ttf2woff", function(){
+  return gulp.src(["source/fonts/*.ttf"])
+    .pipe(ttf2woff())
+    .pipe(gulp.dest("source/fonts/"));
+});
 
 gulp.task("compress-js", function () {
   return pipeline(
@@ -54,7 +68,7 @@ gulp.task("copy", function () {
     "source/fonts/**/*.{woff,woff2}",
     "source/img/**",
     "source/*.ico",
-    "source/manifest.json"
+    "source/*.json"
   ], {
   base: "source"
   })
@@ -79,7 +93,7 @@ gulp.task("webp", function () {
 gulp.task("images", function () {
   return gulp.src("source/img/**/*.{png,jpg,svg}")
     .pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
+      imagemin.optipng({optimizationLevel: 7}),
       imagemin.mozjpeg({progressive: true}),
       imagemin.svgo()
     ]))
@@ -128,6 +142,11 @@ gulp.task("refresh", function (done) {
   server.reload();
   done();
 });
+
+gulp.task("ttf-convert", gulp.series(
+  "ttf2woff",
+  "ttf2woff2"
+));
 
 gulp.task("build", gulp.series(
   "clean",
