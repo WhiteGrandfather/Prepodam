@@ -1,21 +1,32 @@
 .page-header {
   position: relative;
+  box-sizing: border-box;
 
   width: 100%;
   min-height: 480px;
   .margin-center;
 
-  background-color: #c1d9e0;
+  background-color: #687b83;
   background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 100%,  transparent 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 100%, transparent 100%),
     url("../img/background-image.jpg");
   background-repeat: no-repeat;
   background-position-x: right;
   background-size: 1567px auto;
 }
 
+.page-header a {
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
 @media (min-width: 857px) {
-  .page-header{
+  .page-header {
     background-size: 1870px auto;
   }
 }
@@ -38,10 +49,10 @@
   left: 0;
   z-index: 10;
 
+  // display: none;
   // для открытия
-  // display: flex;
+  display: flex;
 
-  display: none;
   flex-direction: column;
 
   width: 100%;
@@ -78,6 +89,18 @@
   border: 2px solid @orange;
 }
 
+.page-header .page-header__teacher-link {
+  &:hover {
+    color: @font-white;
+
+    background-color: @orange;
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
 .page-header__title {
   padding-top: 32px;
   padding-bottom: 27px;
@@ -104,6 +127,27 @@
   font-size: 12px;
   line-height: 16px;
   text-align: center;
+}
+
+.page-header__bottom-text {
+  .hidden;
+}
+
+@media (max-width: @mobile-width) {
+  .page-header--nojs,
+  .page-header--nav-container-opened {
+    background-color: #25262a;
+    background-image: none;
+  }
+
+  .page-header__nav-container--nojs,
+  .page-header__nav-container--opened {
+    display: flex;
+  }
+
+  .page-header__nav-container--closed {
+    .hidden;
+  }
 }
 
 @media (min-width: @tablet-width) {
@@ -141,6 +185,13 @@
     }
   }
 
+  @media (min-width: 1194px) {
+    .page-header {
+      background-size: 1567px auto;
+      background-position-x: right;
+    }
+  }
+
   .page-header__container {
     width: 94.3%;
     min-height: 130px;
@@ -174,11 +225,19 @@
     }
   }
 
+  .page-header__phone-link:hover::before {
+    opacity: 0.8;
+  }
+
+  .page-header__phone-link:active::before {
+    opacity: 0.6;
+  }
+
   .page-header__logo {
     order: -1;
   }
 
-  .page-header__menu-toggle{
+  .page-header__menu-toggle {
     order: 1;
   }
 
@@ -224,5 +283,111 @@
     font-size: 14px;
     line-height: 18px;
     text-align: left;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .page-header {
+    min-height: 880px;
+
+    background-position-y: top, -31px;
+    background-position-x: -127px;
+
+    &::before {
+      bottom: 83px;
+    }
+
+    &::after {
+      bottom: 105px;
+    }
+  }
+
+  .page-header__bottom-text {
+    display: block;
+    padding-top: 226px;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.48px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .page-header__container {
+    justify-content: left;
+    box-sizing: border-box;
+
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 64px;
+  }
+
+  .page-header__nav-container {
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .page-header__sity-link {
+    padding-left: 39px;
+    padding-right: 32px;
+
+    font-size: 16px;
+    letter-spacing: 0.32px;
+  }
+
+  .page-header__phone-link {
+    padding-right: 15px;
+    font-size: 16px;
+    letter-spacing: 0.32px;
+
+    &::before {
+      top: 1px;
+    }
+  }
+
+  .page-header__teacher-link {
+    width: 196px;
+    min-height: 25px;
+    padding-top: 11px;
+
+    font-size: 12px;
+    letter-spacing: 0.24px;
+  }
+
+  .page-header__title {
+    margin-bottom: 0;
+    padding-top: 81px;
+    padding-right: 100px;
+    font-size: 42px;
+    line-height: 48px;
+    letter-spacing: 1.26px;
+  }
+
+  .page-header__text {
+    position: relative;
+
+    width: 378px;
+    margin-top: 0;
+    padding-top: 25px;
+    padding-left: 197px;
+    padding-right: 114px;
+    padding-bottom: 42px;
+
+    font-size: 16px;
+    line-height: 20px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 14px;
+      left: 0;
+
+      width: 179px;
+      height: 65px;
+
+      background-image: url("../img/stars.png");
+      background-repeat: no-repeat;
+    }
   }
 }

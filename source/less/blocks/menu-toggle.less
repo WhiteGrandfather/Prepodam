@@ -26,10 +26,10 @@
 
   &--cross::before {
     top: 47%;
-    left: 32%;
+    left: 20%;
     transform: rotate(45deg);
 
-    width: 24px;
+    width: 38px;
 
     box-shadow: none;
   }
@@ -38,13 +38,13 @@
     position: absolute;
     content: "";
     top: 47%;
-    left: 32%;
-    transform: rotate(-45deg);
+    left: 20%;
+    transform: rotate(135deg);
 
-    width: 24px;
-    height: 2px;
+    width: 38px;
+    height: 4px;
 
-    background-color: rgba(034, 034, 034, 1);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 
@@ -56,12 +56,15 @@
 
 .menu-toggle--cross:hover,
 .menu-toggle--cross:focus {
+  opacity: 0.8;
+
   &::before {
     box-shadow: none;
+    background-color: rgba(255, 255, 255, 1);
   }
 
   &::after {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 
@@ -72,12 +75,15 @@
 }
 
 .menu-toggle--cross:active {
+  opacity: 0.6;
+
   &::before {
     box-shadow: none;
+    background-color: rgba(255, 255, 255, 1);
   }
 
   &::after {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 
@@ -85,10 +91,16 @@
   .visually-hidden;
 }
 
-@media (max-width: @mobile-width) {
+// @media (max-width: @mobile-width) {
+//   .menu-toggle {
+//     &--show {
+//       display: block;
+//     }
+//   }
+// }
+
+@media (min-width: @desktop-width) {
   .menu-toggle {
-    &--show {
-      display: block;
-    }
+    .hidden;
   }
 }
