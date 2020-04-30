@@ -1,0 +1,228 @@
+.page-header {
+  position: relative;
+
+  width: 100%;
+  min-height: 480px;
+  .margin-center;
+
+  background-color: #c1d9e0;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 100%,  transparent 100%),
+    url("../img/background-image.jpg");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 1567px auto;
+}
+
+@media (min-width: 857px) {
+  .page-header{
+    background-size: 1870px auto;
+  }
+}
+
+.page-header__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: @mobile-container;
+  min-height: 108px;
+  .margin-center;
+}
+
+.page-header__nav-container {
+  position: absolute;
+  content: "";
+  top: 108px;
+  left: 0;
+  z-index: 10;
+
+  // для открытия
+  // display: flex;
+
+  display: none;
+  flex-direction: column;
+
+  width: 100%;
+
+  padding-top: 33px;
+  padding-bottom: 32px;
+
+  background-color: #25262a;
+}
+
+.page-header__sity-link {
+  font-size: 14px;
+  padding-left: 6px;
+  padding-right: 4px;
+}
+
+.page-header__phone-link {
+  .hidden;
+}
+
+.page-header__teacher-link {
+  align-self: center;
+
+  width: 196px;
+  min-height: 25px;
+  padding-top: 11px;
+
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  border-radius: 4px;
+  border: 2px solid @orange;
+}
+
+.page-header__title {
+  padding-top: 32px;
+  padding-bottom: 27px;
+
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.page-header__title span {
+  color: @orange;
+}
+
+.page-header__text {
+  width: 285px;
+  .margin-center;
+  padding-bottom: 56px;
+
+  .family-open-sans;
+  font-weight: 400;
+  color: #f1f1f1;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+@media (min-width: @tablet-width) {
+  .page-header {
+    min-height: 768px;
+
+    background-size: 1379px auto;
+    background-position-x: -184px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 50%;
+      bottom: 52px;
+      transform: translateX(-50%);
+
+      width: 20px;
+      height: 35px;
+
+      border-radius: 12px;
+      border: 2px solid #ffffff;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      bottom: 74px;
+      transform: translateX(-50%);
+
+      width: 2px;
+      height: 8px;
+
+      background-color: @background-white;
+    }
+  }
+
+  .page-header__container {
+    width: 94.3%;
+    min-height: 130px;
+    padding-left: 13px;
+  }
+
+  .page-header__sity-link {
+    padding-bottom: 1px;
+  }
+
+  .page-header__phone-link {
+    position: relative;
+
+    display: block;
+    padding-left: 22px;
+    padding-bottom: 1px;
+
+    font-size: 14px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 2px;
+      left: 4px;
+      width: 14px;
+      height: 14px;
+
+      background-image: url("../img/icon-phone.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .page-header__logo {
+    order: -1;
+  }
+
+  .page-header__menu-toggle{
+    order: 1;
+  }
+
+  .page-header__nav-container {
+    position: inherit;
+
+    display: flex;
+    flex-direction: row;
+
+    width: auto;
+    padding: 0;
+
+    background-color: transparent;
+  }
+
+  .page-header__teacher-link {
+    width: 146px;
+    min-height: 24px;
+    padding-top: 12px;
+
+    font-size: 10px;
+  }
+
+  .page-header__title {
+    width: fit-content;
+    margin-left: auto;
+    padding-top: 85px;
+    padding-right: 40px;
+    padding-bottom: 12px;
+
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0.72px;
+    text-align: left;
+  }
+
+  .page-header__text {
+    width: 395px;
+    margin-right: 0;
+    padding-right: 53px;
+    padding-bottom: 27px;
+
+    font-size: 14px;
+    line-height: 18px;
+    text-align: left;
+  }
+}
